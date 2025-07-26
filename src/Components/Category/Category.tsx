@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import Title from "../Title/Title";
 import { AxiosInterface } from "../Config/Axios";
 
-import "./category.css"
+import "./category.css";
 import { Link } from "react-router-dom";
+import { MY_URL_IMAGE } from "../Config/Axios";
 
 interface ICategory {
   id?: number;
   attributes: {
     name: string;
-    name_eng:string;
+    name_eng: string;
     image: {
       data: {
         attributes: {
@@ -35,9 +36,16 @@ const Category = () => {
 
   const MY_Category = category.map((item) => {
     return (
-      <Link to={`/category/${item.attributes.name_eng}`} className="box" key={item.id}>
+      <Link
+        to={`/category/${item.attributes.name_eng}`}
+        className="box"
+        key={item.id}
+      >
         <div className="image">
-          <img src={item.attributes.image.data.attributes.url} alt="" />
+          <img
+            src={`${MY_URL_IMAGE}${item.attributes.image.data.attributes.url}`}
+            alt=""
+          />
         </div>
         <h2>{item.attributes.name}</h2>
       </Link>

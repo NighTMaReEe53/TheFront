@@ -17,6 +17,7 @@ import {
 import { FaDollarSign } from "react-icons/fa";
 import { FaRegSquareCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { MY_URL_IMAGE } from "../../Config/Axios";
 
 const Drawer = () => {
   const { cart, counter } = useSelector((state: RootState) => state.cart);
@@ -48,7 +49,7 @@ const Drawer = () => {
   const MY_PRODUCT = cart.map((el) => {
     return (
       <div className="box" key={el.id}>
-        <img src={el.image} alt="" />
+        <img src={`${MY_URL_IMAGE}${el.image}`} alt="" />
         <div className="text">
           <h2>{el.title}</h2>
           <p>{el.description}</p>

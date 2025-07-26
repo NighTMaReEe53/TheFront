@@ -86,7 +86,7 @@ const Nav = () => {
                   setActive("Product");
                 }}
               >
-                المنتجات 
+                المنتجات
               </Link>
             </li>
             {JWT_Parsing ? (

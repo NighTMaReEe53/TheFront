@@ -18,7 +18,7 @@ import { Order_Schema } from "../Validation/Index";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Error from "../Components/Error/Index";
-import { AxiosInterface, JWT_Parsing } from "../Components/Config/Axios";
+import { AxiosInterface, JWT_Parsing, MY_URL_IMAGE } from "../Components/Config/Axios";
 import toast from "react-hot-toast";
 import Spinner from "../Components/Spinner/Spinner";
 
@@ -109,7 +109,7 @@ const Check_Order = () => {
   const MY_PRODUCT = cart.map((item) => {
     return (
       <div className="box" key={item.id}>
-        <img src={`${item.image}`} alt="" />
+        <img src={`${MY_URL_IMAGE}${item.image}`} alt="" />
         <div className="text">
           <h2>{item.title}</h2>
           <p>{item.description}</p>

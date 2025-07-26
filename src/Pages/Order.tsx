@@ -11,7 +11,7 @@ import { IoStarSharp } from "react-icons/io5";
 import "../Styles/OrderPage.css";
 import { MdDeleteSweep } from "react-icons/md";
 import Spinner from "../Components/Spinner/Spinner";
-import { AxiosInterface, JWT_Parsing } from "../Components/Config/Axios";
+import { AxiosInterface, JWT_Parsing, MY_URL_IMAGE } from "../Components/Config/Axios";
 import toast from "react-hot-toast";
 import { BiSolidError } from "react-icons/bi";
 
@@ -86,7 +86,7 @@ const Order = () => {
 
           return (
             <div className="box" key={item.id}>
-              <img src={item.image} alt="" />
+              <img src={`${MY_URL_IMAGE}${item.image}`} alt="" />
               <div className="text">
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
@@ -121,7 +121,7 @@ const Order = () => {
                         <h2>تم عمل هذا الاوردر</h2>
                         <h2>
                           {" "}
-                          {theDate.getDay()} / {months[theDate.getMonth()]} /{" "}
+                          {theDate.getDate()} / {months[theDate.getMonth()]} /{" "}
                           {theDate.getFullYear()}
                         </h2>
                       </div>

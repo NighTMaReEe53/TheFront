@@ -8,6 +8,7 @@ import type { ISale_Product } from "../Interfaces/Index";
 import { FaWhatsapp } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { MdOutlineReportGmailerrorred } from "react-icons/md";
+import { MY_URL_IMAGE } from "../Components/Config/Axios";
 
 const Sale = () => {
   const { sale } = useSelector((state: RootState) => state.sale);
@@ -25,7 +26,7 @@ const Sale = () => {
     return (
       <div className="sale-box" key={el.id}>
         <div className="image">
-          <img src={el.attributes.image} alt="" />
+          <img src={`${MY_URL_IMAGE}${el.attributes.image}`} alt="" />
         </div>
         <h2>اسم المنتج :- {el.attributes.title}</h2>
         <p>وصف المنتج :- {el.attributes.description}</p>

@@ -48,14 +48,12 @@ const Product = () => {
   }, []);
 
   const MY_PRODUCT = Product.map((product) => {
-    console.log(product.attributes.image.data)
-
     return (
       <SwiperSlide key={product.id}>
         <div className="box">
           <div className="image">
             <img
-              src={product.attributes?.image?.data[0]?.attributes?.url}
+              src={`${product.attributes?.image?.data[0]?.attributes?.url}`}
               alt=""
             />
           </div>

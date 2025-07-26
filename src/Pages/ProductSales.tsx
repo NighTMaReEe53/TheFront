@@ -2,14 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Title from "../Components/Title/Title";
 import type { AppDispatch, RootState } from "../Store/Store";
 import { useEffect, useState, type ChangeEvent } from "react";
-import {
-  FETCH_DATA_SALE,
-  FETCH_DATA_SALE_FOR_ME,
-} from "../Store/Sale_Action/Sale_Slice";
+import { FETCH_DATA_SALE_FOR_ME } from "../Store/Sale_Action/Sale_Slice";
 import {
   AxiosInterface,
   ID_Parsing,
   JWT_Parsing,
+  MY_URL_IMAGE,
 } from "../Components/Config/Axios";
 import toast from "react-hot-toast";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -68,7 +66,7 @@ const ProductSales = () => {
             position: "top-center",
             duration: 1500,
           });
-          dispatch(FETCH_DATA_SALE());
+          dispatch(FETCH_DATA_SALE_FOR_ME());
         }
       } finally {
         setLoading(false);
@@ -136,7 +134,14 @@ const ProductSales = () => {
     return (
       <div className="sale-box" key={el.id}>
         <div className="image">
-          <img src={el.image} alt="" />
+          <img
+            src={`${
+              el.image
+                ? el.image
+                : "https://png.pngtree.com/thumb_back/fh260/background/20220217/pngtree-green-simple-atmospheric-waste-classification-illustration-background-image_953325.jpg"
+            }`}
+            alt=""
+          />
         </div>
         <h2>اسم المنتج :- {el.title}</h2>
         <p>وصف المنتج :- {el.description}</p>
@@ -172,7 +177,7 @@ const ProductSales = () => {
         >
           <div className="image">
             {image ? (
-              <img src={image} className="myImage" alt="" />
+              <img src={`${MY_URL_IMAGE}${image}`} className="myImage" alt="" />
             ) : (
               <>
                 <input

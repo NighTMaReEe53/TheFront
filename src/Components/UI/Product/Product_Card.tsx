@@ -2,7 +2,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import type { IProduct } from "../../../Interfaces/Index";
 import "./productCard.css";
 import { FaHeart, FaRegEye } from "react-icons/fa";
-import { JWT_Parsing } from "../../Config/Axios";
+import { JWT_Parsing, MY_URL_IMAGE } from "../../Config/Axios";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../Store/Store";
 import { GiStarsStack } from "react-icons/gi";
@@ -14,7 +14,7 @@ import {
 import { Remove_Favourite_Product, SEND_FAVOURTIE } from "../../Function/Index";
 import { MdDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { ADD_TO_CART, INCREMENT } from "../../../Store/Cart_Action/Cart_Slice";
+import { ADD_TO_CART, FETCH_DATA_CART, INCREMENT } from "../../../Store/Cart_Action/Cart_Slice";
 interface product {
   product: IProduct;
   isShow?: boolean;
@@ -36,7 +36,10 @@ const Product_Card = ({ product, isShow = true }: product) => {
 
   return (
     <div className="box-content">
-      <img src={product.attributes.image.data[0].attributes.url} alt="" />
+      <img
+        src={`${MY_URL_IMAGE}${product.attributes.image.data[0].attributes.url}`}
+        alt=""
+      />
       <div className="text">
         <h2>{product.attributes.title}</h2>
         <p>{product.attributes.description}</p>
@@ -58,6 +61,7 @@ const Product_Card = ({ product, isShow = true }: product) => {
           onClick={() => {
             dispatch(ADD_TO_CART(product));
             dispatch(INCREMENT());
+            dispatch(FETCH_DATA_CART());
           }}
         >
           اضافة الي <CiShoppingCart size={25} />{" "}
@@ -76,6 +80,7 @@ const Product_Card = ({ product, isShow = true }: product) => {
             onClick={() => {
               SEND_FAVOURTIE(favouriteCart, product);
               dispatch(INCREASE_FAVOURITE());
+              dispatch(GET_DATA_FAVOURITE());
               setCount((count) => (count += 1));
             }}
           >
@@ -89,6 +94,7 @@ const Product_Card = ({ product, isShow = true }: product) => {
           onClick={() => {
             Remove_Favourite_Product(favouriteCart, product);
             dispatch(INCREASE_FAVOURITE());
+            dispatch(GET_DATA_FAVOURITE());
           }}
         >
           <MdDeleteSweep size={22} />

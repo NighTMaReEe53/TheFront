@@ -1,5 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import { AxiosInterface, JWT_Parsing } from "../Components/Config/Axios";
+import {
+  AxiosInterface,
+  JWT_Parsing,
+  MY_URL_IMAGE,
+} from "../Components/Config/Axios";
 import { useEffect, useState } from "react";
 import type { IProduct, IProduct_Single } from "../Interfaces/Index";
 import { IoStarSharp } from "react-icons/io5";
@@ -40,6 +44,7 @@ const SingleProduct = () => {
 
   const [theProduct, setTheProduct] = useState<IProduct[]>([]);
 
+
   const { count_qty, disapled_Increment, disapled_Decrement } = useSelector(
     (state: RootState) => state.cart
   );
@@ -77,7 +82,7 @@ const SingleProduct = () => {
         <div className="box-similar">
           <div className="image">
             <img
-              src={product.attributes?.image?.data[0]?.attributes?.url}
+              src={`${MY_URL_IMAGE}${product.attributes?.image?.data[0]?.attributes?.url}`}
               alt=""
             />
           </div>
@@ -109,7 +114,6 @@ const SingleProduct = () => {
               <button
                 className="danger-btn"
                 onClick={() => {
-                  console.log(product);
                   SEND_FAVOURTIE(favouriteCart, product);
                   dispatch(INCREASE_FAVOURITE());
                 }}
@@ -133,7 +137,7 @@ const SingleProduct = () => {
           <div className="image">
             <img
               className="main-img"
-              src={product?.attributes.image.data[0].attributes.url}
+              src={`${product?.attributes.image.data[0].attributes.url}`}
               alt=""
             />
           </div>
@@ -192,7 +196,6 @@ const SingleProduct = () => {
               <button
                 className="danger-btn"
                 onClick={() => {
-                  console.log(product);
                   SEND_FAVOURTIE(favouriteCart, product);
                   dispatch(INCREASE_FAVOURITE());
                 }}

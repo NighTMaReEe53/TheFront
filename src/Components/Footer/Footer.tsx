@@ -2,8 +2,14 @@ import { CiSquareCheck } from "react-icons/ci";
 import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 import { IoMdArrowDropleft } from "react-icons/io";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import "./footer.css"
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
+import "./footer.css";
+import { IoCodeSlash } from "react-icons/io5";
 
 const Footer = () => {
   return (
@@ -66,7 +72,14 @@ const Footer = () => {
             </button>
           </div>
         </div>
-        <p className="copyright">تم انشاء بواسطة <span>فريق العمل</span></p>
+        <p className="copyright">
+          تم انشاء بواسطة{" "}
+          <span>
+            {" "}
+            فريق العمل
+            <IoCodeSlash size={25} />
+          </span>
+        </p>
       </div>
     </div>
   );

@@ -95,6 +95,9 @@
     border-top: 1px solid #ffffffab;
     span {
       color: var(--mainColor);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
   }
 }

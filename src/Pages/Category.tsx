@@ -12,15 +12,20 @@ const Category = () => {
   const navigate = useNavigate();
 
   const [theData, setTheData] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [value, setValue] = useState<string | undefined>("");
 
   const GET_DATA = async () => {
-    const { data } = await AxiosInterface.get(
-      `products?populate=*&filters[categories][name_eng]=${param.ID}`
-    );
-
-    setTheData(data.data);
+    setLoading(true);
+    try {
+      const { data } = await AxiosInterface.get(
+        `products?populate=*&filters[categories][name_eng]=${param.ID}`
+      );
+      setTheData(data.data);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -67,7 +72,25 @@ const Category = () => {
             </option>
           </select>
         </div>
-        <div className="content">{Product}</div>
+        {loading ? (
+          <div className="content-skeleton">
+            {["", "", "", ""].map((_, i) => {
+              return (
+                <div className="category-loading" key={i}>
+                  <div className="image-skeleton"></div>
+                  <div className="title-skeleton"></div>
+                  <div className="para-skeleton"></div>
+                  <div className="btns">
+                    <div className="btn-skeleton"></div>
+                    <div className="btn-skeleton"></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="content">{Product}</div>
+        )}
       </div>
     </div>
   );
