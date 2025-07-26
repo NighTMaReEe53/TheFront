@@ -62,8 +62,8 @@ const Product = () => {
             <h2>{product.attributes.title}</h2>
             <p>{product.attributes.description}</p>
             <span>
-              Price : <span>{product.attributes.price}</span> EGP Instead Of
-              <del> {product.attributes.price + product.attributes.price}</del>
+              السعر <span>{product.attributes.price}</span> جنيه بدلا من
+              <del> {product.attributes.price + product.attributes.price} جنيه</del>
             </span>
             <div className="btns">
               <button

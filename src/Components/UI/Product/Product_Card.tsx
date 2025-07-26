@@ -49,8 +49,8 @@ const Product_Card = ({ product, isShow = true }: product) => {
         <h2>{product.attributes.title}</h2>
         <p>{product.attributes.description}</p>
         <span>
-          Price Is : <span>{product.attributes.price} EGP</span> Instead Of{" "}
-          <del>{product.attributes.price + product.attributes.price} EGP</del>
+          السعر <span>{product.attributes.price} جنيه</span> بدلا من{" "}
+          <del>{product.attributes.price + product.attributes.price} جنيه</del>
         </span>
         <div className="stars">
           <GiStarsStack size={22} color="#ffc107" />
