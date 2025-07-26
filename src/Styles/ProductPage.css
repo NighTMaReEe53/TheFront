@@ -1,0 +1,213 @@
+.our-product {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  .right {
+    background-color: var(--whiteColor);
+    width: 250px;
+    height: calc(100vh - 72px);
+    position: sticky;
+    top: 72px;
+    overflow-y: scroll;
+    padding: 15px;
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--mainColor);
+      border-radius: 30px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #f0f4f3;
+    }
+    transition: var(--trans);
+    @media (max-width: 992px) {
+      position: fixed;
+      z-index: 9;
+      right: -100%;
+    }
+    @media (min-width: 992px) {
+      .overlay.overlay-right {
+        display: none;
+      }
+    }
+    &.show {
+      right: 0;
+      transition-delay: 0.2s;
+      @media (max-width: 992px) {
+        .overlay {
+          transition: var(--trans);
+          position: fixed;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+      }
+    }
+    .search {
+      position: relative;
+      margin-bottom: 10px;
+      input {
+        padding: 10px 15px 10px 35px;
+        border-radius: 4px;
+        width: 100%;
+        font-family: "Playpen Sans Arabic", cursive;
+
+        font-size: 15px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: var(--trans);
+        &:focus {
+          box-shadow: 0 0 4px var(--mainColor) inset;
+        }
+      }
+      svg {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.5;
+      }
+    }
+    .cate-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: var(--textColor);
+      margin: 10px 0px;
+      label {
+        cursor: pointer;
+        font-family: "Playpen Sans Arabic", cursive;
+      }
+      input {
+        accent-color: var(--mainColor);
+        color: var(--whiteColor);
+        background-color: var(--whiteColor);
+      }
+    }
+
+    .price-div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      label {
+        cursor: pointer;
+      }
+    }
+    .sorting {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    span {
+      display: flex;
+      font-weight: bold;
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+  .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    min-height: calc(100vh - 72px);
+    position: relative;
+    &.edit {
+      min-height: 100vh;
+    }
+    @media (max-width: 992px) {
+      padding: 20px;
+    }
+    .filter {
+      background: #607d8b;
+      padding: 7px 15px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--whiteColor);
+      gap: 10px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: var(--trans);
+      flex-basis: 100%;
+      @media (min-width: 992px) {
+        display: none;
+      }
+      &:active {
+        scale: 0.95;
+      }
+    }
+    .over-write {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 50px;
+      @media(max-width:776px) {
+        font-size: 35px;
+      }
+      opacity: 0.2;
+    }
+  }
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Playpen Sans Arabic", cursive;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff4;
+  backdrop-filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--whiteColor);
+    border-bottom-color: var(--mainColor);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+label {
+  color: var(--textColor);
+  cursor: pointer;
+  font-size: 15px;
+}

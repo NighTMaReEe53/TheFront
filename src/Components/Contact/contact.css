@@ -1,0 +1,63 @@
+.contact {
+  padding-top: var(--paddingTop);
+  padding-bottom: var(--paddingBottom);
+  background-color: var(--whiteColor);
+  position: relative;
+  .spikes {
+    background-image: linear-gradient(135deg, #f0f4f3 25%, transparent 25%),
+      linear-gradient(225deg, #f0f4f3 25%, transparent 25%);
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 992px) {
+      justify-content: center;
+    }
+    gap: 10px;
+    flex-wrap: wrap;
+    .right {
+      flex-basis: 48%;
+      @media (max-width: 992px) {
+        flex-basis: 100%;
+        order: 2;
+      }
+      form {
+        label {
+          display: block;
+          font-family: "Playpen Sans Arabic", cursive;
+          color: var(--blackColor);
+          font-size: 15px;
+        }
+        input,
+        textarea {
+          width: 100%;
+          font-family: "Playpen Sans Arabic", cursive;
+          padding: 10px 15px;
+          border: 1px solid #ccc;
+          transition: var(--trans);
+          border-radius: 4px;
+          caret-color: var(--mainColor);
+          outline: none;
+          margin: 10px 0px;
+          &:focus {
+            box-shadow: 0 0 4px var(--mainColor) inset;
+          }
+        }
+        textarea {
+          height: 150px;
+          resize: none;
+        }
+      }
+    }
+    .left {
+      flex-basis: 48%;
+      @media (min-width: 773px) and (max-width: 992px) {
+        flex-basis: 70%;
+      }
+      @media (max-width: 772px) {
+        flex-basis: 100%;
+      }
+    }
+  }
+}

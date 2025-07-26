@@ -1,0 +1,103 @@
+.product {
+  padding-top: var(--paddingTop);
+  padding-bottom: var(--paddingBottom);
+  position: relative;
+  background-color: var(--whiteColor);
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    .box {
+      flex-basis: 24%;
+      @media (max-width: 772px) {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      @media (min-width: 773px) and (max-width: 992px) {
+        flex-basis: 48%;
+      }
+
+      background-color: var(--whiteColor);
+      border-radius: 4px;
+      padding: 15px;
+      border: 1px solid #cccccc26;
+      max-height: 600px;
+      @media (max-width: 776px) {
+        text-align: center;
+      }
+
+      .text {
+        direction: ltr;
+      }
+
+      h2 {
+        font-weight: bold;
+        color: var(--blackColor);
+        font-size: 15px;
+        text-transform: capitalize;
+        direction: ltr;
+      }
+      p {
+        direction: ltr;
+        color: var(--textColor);
+        font-size: 14px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        height: 120px;
+        overflow: hidden;
+      }
+      .image {
+        text-align: center;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+      }
+
+      span {
+        font-weight: bold;
+        color: var(--blackColor);
+        display: inline-block;
+        margin: 5px 0;
+        font-size: 14px;
+
+        span {
+          color: var(--mainColor);
+        }
+        del {
+          color: #f05;
+        }
+      }
+
+      .btns {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        direction: rtl;
+
+        button,
+        a {
+          direction: rtl;
+          flex-basis: 48%;
+          font-size: 12px;
+          transition: var(--trans);
+          text-decoration: none;
+          &:active {
+            scale: 0.95;
+          }
+        }
+      }
+      .danger-btn {
+        display: flex;
+        direction: rtl;
+
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  }
+}

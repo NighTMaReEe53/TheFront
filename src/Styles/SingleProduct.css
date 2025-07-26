@@ -1,0 +1,145 @@
+.myProduct {
+  .container {
+    .box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--whiteColor);
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 6px;
+      @media (max-width: 992px) {
+        flex-direction: column;
+      }
+      .image {
+        flex-basis: 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 250px;
+        }
+      }
+      .text {
+        p {
+          font-size: 15px;
+          color: var(--textColor);
+          text-transform: capitalize;
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+          .price {
+            color: var(--mainColor);
+            font-weight: bold;
+          }
+        }
+        .category-item {
+          color: var(--textColor);
+          direction: ltr;
+          text-align: right;
+        }
+        .btns-increase {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 15px;
+          font-weight: bold;
+          .cliecked {
+            padding: 10px 15px;
+            background: #f0f4f3;
+            border-radius: 6px;
+            border: 1px solid #cccccccc;
+            cursor: pointer;
+            transition: var(--trans);
+            &:active {
+              scale: 0.95;
+            }
+            &.disapled {
+              pointer-events: none;
+              opacity: 0.5;
+            }
+          }
+        }
+        .btns {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          button {
+            flex-basis: 40%;
+            @media(max-width:992px) {
+              flex-basis: 49%;
+              font-size: 14px;
+            }
+          }
+          .danger-btn {
+            padding: 10px;
+            margin-top: 0px;
+            display: flex;
+            gap: 10px;
+          }
+        }
+      }
+    }
+    .box-similar {
+      padding: 10px;
+      border-radius: 6px;
+      background-color: var(--whiteColor);
+      img {
+        width: 80%;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+      .text {
+        direction: ltr;
+        h2 {
+          font-weight: bold;
+        }
+        p {
+          font-size: 15px;
+          height: 100px;
+          overflow: hidden;
+          color: var(--textColor);
+        }
+        span {
+          color: var(--blackColor);
+          span {
+            color: var(--mainColor);
+            font-weight: bold;
+          }
+          del {
+            color: #f05;
+            font-weight: bold;
+          }
+        }
+        .btns {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 10px;
+          button,
+          a {
+            flex-basis: 49%;
+          }
+          a {
+            text-decoration: none;
+          }
+        }
+        .danger-btn {
+          padding: 10px;
+          gap: 10px;
+        }
+      }
+    }
+    .main-title {
+      margin-top: 30px;
+    }
+    .content-smiler {
+      .image {
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+.register {
+  height: calc(100vh - 72px);
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 992px) {
+    overflow: visible;
+  }
+  .Shapes-1 {
+    position: absolute;
+    width: 500px;
+    @media (max-width: 776px) {
+      display: none;
+    }
+  }
+  .logo {
+    width: 90%;
+  }
+  .Shapes-2 {
+    position: absolute;
+    width: 200px;
+    bottom: 0;
+    opacity: 0.2;
+    @media (max-width: 992px) {
+      width: 150px;
+      left: 0;
+    }
+  }
+  .Shapes-3 {
+    position: absolute;
+    left: -286px;
+    top: 0px;
+    height: 100%;
+    @media (max-width: 992px) {
+      left: 0px;
+      width: 350px;
+    }
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    @media (max-width: 772px) {
+      width: 90%;
+    }
+    height: 550px;
+    background-color: var(--whiteColor);
+    border-radius: 10px;
+    padding: 15px;
+    @media (max-width: 992px) {
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--mainColor);
+        border-radius: 25px;
+      }
+    }
+    @media (min-width: 773px) and (max-width: 992px) {
+      padding: 15px 0px;
+    }
+    @media (max-width: 772px) {
+      padding: 10px;
+    }
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 0px;
+    }
+    @media (max-width: 776px) {
+      padding: 0px;
+    }
+    .left {
+      flex-basis: 49%;
+      @media (max-width: 992px) {
+        width: 100%;
+        position: relative;
+        .logo,
+        .name-logo {
+          color: var(--whiteColor);
+        }
+      }
+      @media (min-width: 992px) {
+        .logo {
+          display: none;
+        }
+      }
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      span {
+        color: #f2f2f2;
+      }
+      .name {
+        font-family: "Playpen Sans Arabic", cursive;
+        color: var(--whiteColor);
+        font-size: 40px;
+        @media (max-width: 776px) {
+          font-size: 30px;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 49%;
+        height: 96%;
+        background-image: linear-gradient(
+          to bottom,
+          var(--mainColor),
+          var(--SecondaryColor)
+        );
+        border-radius: 10px;
+        z-index: -1;
+        @media (max-width: 992px) {
+          width: 100%;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+    .right {
+      flex-basis: 49%;
+      > h2 {
+        font-size: 17px;
+        font-family: "Playpen Sans Arabic", cursive;
+        text-align: center;
+        width: 90%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 7px;
+        span {
+          color: var(--mainColor);
+          font-weight: bold;
+        }
+      }
+      @media (max-width: 992px) {
+        order: 2;
+        width: 100%;
+        .logo {
+          display: none;
+        }
+      }
+      form {
+        label {
+          &:first-child {
+            margin-top: 7px;
+          }
+          font-size: 16px;
+          display: block;
+          font-weight: bold;
+          color: var(--textColor);
+        }
+        .main-btn {
+          width: 90%;
+          @media (max-width: 992px) {
+            width: 100%;
+          }
+        }
+        input {
+          width: 90%;
+          display: block;
+          font-family: "Playpen Sans Arabic", cursive;
+          margin: 5px 0;
+          @media (max-width: 992px) {
+            width: 100%;
+          }
+          padding: 10px 15px;
+          font-size: 13px;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid #ccc;
+          caret-color: var(--mainColor);
+          color: var(--blackColor);
+          transition: var(--trans);
+          &:focus {
+            border: 1px solid #fff;
+            box-shadow: 0 0 4px var(--mainColor) inset;
+          }
+        }
+      }
+    }
+  }
+}
