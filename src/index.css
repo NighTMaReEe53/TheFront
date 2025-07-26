@@ -68,6 +68,15 @@ body {
   }
 }
 
+.audio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+}
+
 /* BTN */
 .main-btn {
   display: flex;
