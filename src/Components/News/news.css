@@ -58,6 +58,10 @@
           width: 150%;
           height: 100%;
           left: -40px;
+          @media (max-width: 772px) {
+            width: 100% !important;
+            left: 0 !important;
+          }
           background: black;
           filter: blur(48px);
         }
