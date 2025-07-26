@@ -34,10 +34,8 @@
         color: var(--blackColor);
         font-size: 15px;
         text-transform: capitalize;
-        direction: ltr;
       }
       p {
-        direction: ltr;
         color: var(--textColor);
         font-size: 14px;
         text-transform: capitalize;
