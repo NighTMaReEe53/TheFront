@@ -19,6 +19,7 @@ import { INCREASE_FAVOURITE } from "../Store/Favourite_Action/FavouriteSlice";
 import { SEND_FAVOURTIE } from "../Components/Function/Index";
 import { Link } from "react-router-dom";
 import { ADD_TO_CART, INCREMENT } from "../Store/Cart_Action/Cart_Slice";
+import toast from "react-hot-toast";
 
 const Product = () => {
   const JWT_Storge = window.localStorage.getItem("JWT");
@@ -68,8 +69,15 @@ const Product = () => {
               <button
                 className="main-btn"
                 onClick={() => {
-                  dispatch(ADD_TO_CART(product));
-                  dispatch(INCREMENT());
+                  if (JWT_Parsing) {
+                    dispatch(ADD_TO_CART(product));
+                    dispatch(INCREMENT());
+                  } else {
+                    toast.error("لازم تسجل الدخول الاول", {
+                      duration: 1500,
+                      position: "top-left"
+                    })
+                  }
                 }}
               >
                 اضافة الي <CiShoppingCart size={25} />{" "}

@@ -30,6 +30,7 @@ import { Navigation } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
+import toast from "react-hot-toast";
 
 const SingleProduct = () => {
   const { Id, productName } = useParams();
@@ -43,7 +44,6 @@ const SingleProduct = () => {
   const [product, setProduct] = useState<IProduct_Single>();
 
   const [theProduct, setTheProduct] = useState<IProduct[]>([]);
-
 
   const { count_qty, disapled_Increment, disapled_Decrement } = useSelector(
     (state: RootState) => state.cart
@@ -186,8 +186,15 @@ const SingleProduct = () => {
               <button
                 className="main-btn"
                 onClick={() => {
-                  dispatch(ADD_TO_CART_QTY(product));
-                  dispatch(INCREMENT());
+                  if (JWT_Parsing) {
+                    dispatch(ADD_TO_CART_QTY(product));
+                    dispatch(INCREMENT());
+                  } else {
+                    toast.error("لازم تسجل الدخول الاول", {
+                      position: "top-center",
+                      duration: 1500,
+                    });
+                  }
                 }}
               >
                 اضف الي العربة
@@ -196,8 +203,15 @@ const SingleProduct = () => {
               <button
                 className="danger-btn"
                 onClick={() => {
-                  SEND_FAVOURTIE(favouriteCart, product);
-                  dispatch(INCREASE_FAVOURITE());
+                  if (JWT_Parsing) {
+                    SEND_FAVOURTIE(favouriteCart, product);
+                    dispatch(INCREASE_FAVOURITE());
+                  } else {
+                    toast.error("لازم تسجل الدخول الاول", {
+                      position: "top-center",
+                      duration: 1500,
+                    });
+                  }
                 }}
               >
                 اضف الي المفضلة

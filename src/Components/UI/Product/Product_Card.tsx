@@ -14,7 +14,12 @@ import {
 import { Remove_Favourite_Product, SEND_FAVOURTIE } from "../../Function/Index";
 import { MdDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { ADD_TO_CART, FETCH_DATA_CART, INCREMENT } from "../../../Store/Cart_Action/Cart_Slice";
+import {
+  ADD_TO_CART,
+  FETCH_DATA_CART,
+  INCREMENT,
+} from "../../../Store/Cart_Action/Cart_Slice";
+import toast from "react-hot-toast";
 interface product {
   product: IProduct;
   isShow?: boolean;
@@ -59,9 +64,16 @@ const Product_Card = ({ product, isShow = true }: product) => {
         <button
           className="main-btn"
           onClick={() => {
-            dispatch(ADD_TO_CART(product));
-            dispatch(INCREMENT());
-            dispatch(FETCH_DATA_CART());
+            if (JWT_Parsing) {
+              dispatch(ADD_TO_CART(product));
+              dispatch(INCREMENT());
+              dispatch(FETCH_DATA_CART());
+            } else {
+              toast.error("لازم تسجل الدخول الاول", {
+                position: "top-left",
+                duration: 1500,
+              });
+            }
           }}
         >
           اضافة الي <CiShoppingCart size={25} />{" "}
