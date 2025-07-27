@@ -156,3 +156,17 @@
     }
   }
 }
+
+@media (max-width: 772px) {
+  .news {
+    .container {
+      .content-box {
+        &::after {
+          left: 0px;
+          width: 100%;
+          top: 0px;
+        }
+      }
+    }
+  }
+}
