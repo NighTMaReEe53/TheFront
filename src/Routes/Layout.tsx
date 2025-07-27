@@ -12,7 +12,12 @@ const Layout = () => {
 
       <Outlet />
       <Footer />
-      <AudioPlayer className="audio" autoPlay loop src="../../public/audio.MP3" />
+      <AudioPlayer
+        className="audio"
+        autoPlay
+        loop
+        src="../../public/audio.MP3"
+      />
     </>
   );
 };
