@@ -15,7 +15,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../Store/Store";
-import { INCREASE_FAVOURITE } from "../Store/Favourite_Action/FavouriteSlice";
+import { GET_DATA_FAVOURITE, INCREASE_FAVOURITE } from "../Store/Favourite_Action/FavouriteSlice";
 import { SEND_FAVOURTIE } from "../Components/Function/Index";
 import { Link } from "react-router-dom";
 import { ADD_TO_CART, INCREMENT } from "../Store/Cart_Action/Cart_Slice";
@@ -96,6 +96,7 @@ const Product = () => {
                   SEND_FAVOURTIE(favouriteCart, product);
                   dispatch(INCREASE_FAVOURITE());
                   setCount((count) => (count += 1));
+                  dispatch(GET_DATA_FAVOURITE())
                 }}
               >
                 <FaHeart size={22} />

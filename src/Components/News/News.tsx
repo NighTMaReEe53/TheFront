@@ -22,7 +22,7 @@ const News = () => {
             </div>
           </div>
         </div>
-        <div className="box box-2">
+        <div className="box ">
           <img src="image/news/6.jpg" alt="" />
           <div className="text">
             <h2>مقالة الثالثة</h2>

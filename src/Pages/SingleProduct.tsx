@@ -21,7 +21,10 @@ import {
 import Title from "../Components/Title/Title";
 import Skeleton from "../Components/UI/Skeleton/Skeleton";
 import { SEND_FAVOURTIE } from "../Components/Function/Index";
-import { INCREASE_FAVOURITE } from "../Store/Favourite_Action/FavouriteSlice";
+import {
+  GET_DATA_FAVOURITE,
+  INCREASE_FAVOURITE,
+} from "../Store/Favourite_Action/FavouriteSlice";
 import { FaHeart, FaRegEye } from "react-icons/fa";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -91,14 +94,24 @@ const SingleProduct = () => {
             <p>{product.attributes.description}</p>
             <span>
               السعر <span>{product.attributes.price}</span> جنيه بدلا من
-              <del> {product.attributes.price + product.attributes.price} جنيه</del>
+              <del>
+                {" "}
+                {product.attributes.price + product.attributes.price} جنيه
+              </del>
             </span>
             <div className="btns">
               <button
                 className="main-btn"
                 onClick={() => {
-                  dispatch(ADD_TO_CART(product));
-                  dispatch(INCREMENT());
+                  if (JWT_Parsing) {
+                    dispatch(ADD_TO_CART(product));
+                    dispatch(INCREMENT());
+                  } else {
+                    toast.error("لازم تسجل الدخول الاول", {
+                      duration: 1500,
+                      position: `top-center`,
+                    });
+                  }
                 }}
               >
                 اضافة الي <CiShoppingCart size={25} />{" "}
@@ -206,6 +219,7 @@ const SingleProduct = () => {
                   if (JWT_Parsing) {
                     SEND_FAVOURTIE(favouriteCart, product);
                     dispatch(INCREASE_FAVOURITE());
+                    dispatch(GET_DATA_FAVOURITE());
                   } else {
                     toast.error("لازم تسجل الدخول الاول", {
                       position: "top-center",
