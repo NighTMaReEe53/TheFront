@@ -88,62 +88,67 @@
       }
     }
   }
-  .box {
-    &:nth-child(2) {
-      flex-direction: column;
-      position: relative;
-      height: 410px;
-      border-radius: 6px;
-      overflow: hidden;
-      transition: var(--trans);
-      &:hover {
-        transform: translateY(5px);
-        .text {
-          z-index: 2;
-        }
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 6px;
-        background-color: #0005;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -300px;
-        width: 100%;
-        height: 100%;
-        left: -40px;
-        @media (max-width: 772px) {
-          width: 100% !important;
-          left: 0 !important;
-          bottom: -130px !important;
-        }
-        background: black;
-        filter: blur(48px);
-      }
+}
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      .text {
-        position: absolute;
-        bottom: 30px;
-        width: 100%;
-        h2 {
-          color: var(--whiteColor);
-          font-size: 25px;
-          text-align: center;
+.news {
+  .container {
+    .box {
+      &:nth-child(2) {
+        flex-direction: column;
+        position: relative;
+        height: 410px;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: var(--trans);
+        &:hover {
+          transform: translateY(5px);
+          .text {
+            z-index: 2;
+          }
         }
-        .secondary-btn {
-          margin: auto;
-          width: 50%;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          background-color: #0005;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -300px;
+          width: 100%;
+          height: 100%;
+          left: -40px;
+          @media (max-width: 772px) {
+            width: 100% !important;
+            left: 0 !important;
+            bottom: -130px !important;
+          }
+          background: black;
+          filter: blur(48px);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .text {
+          position: absolute;
+          bottom: 30px;
+          width: 100%;
+          h2 {
+            color: var(--whiteColor);
+            font-size: 25px;
+            text-align: center;
+          }
+          .secondary-btn {
+            margin: auto;
+            width: 50%;
+          }
         }
       }
     }
