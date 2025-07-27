@@ -162,9 +162,9 @@
     .container {
       .content-box {
         &::after {
-          left: 0px;
-          width: 100%;
-          top: 0px;
+          width: 150%;
+          bottom: -145px;
+          left: -45px;
         }
       }
     }
