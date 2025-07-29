@@ -109,6 +109,9 @@
     .total {
       position: absolute;
       bottom: 10px;
+      @media (max-width: 772px) {
+        bottom: 45px;
+      }
       width: 280px;
       .prices {
         display: flex;
