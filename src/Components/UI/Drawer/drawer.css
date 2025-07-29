@@ -45,6 +45,7 @@
     transition: var(--trans);
     transition-delay: 0.1s;
     padding: 10px;
+    position: relative;
     .content-boxes {
       height: 71%;
       overflow-y: scroll;
@@ -109,9 +110,9 @@
     .total {
       position: absolute;
       bottom: 10px;
-      @media (max-width: 772px) {
-        bottom: 45px;
-      }
+      /* @media (max-width: 772px) {
+        bottom: 10px;
+      } */
       width: 280px;
       .prices {
         display: flex;
