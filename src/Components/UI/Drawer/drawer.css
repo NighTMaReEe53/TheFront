@@ -111,7 +111,7 @@
       position: absolute;
       bottom: 10px;
       @media (max-width: 772px) {
-        bottom: 70px;
+        bottom: 65px;
       }
       width: 280px;
       .prices {
